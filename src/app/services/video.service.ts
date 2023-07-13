@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/.environment';
 @Injectable({
   providedIn: 'root'
 })
 export class VideoService {
   private endpoint = 'https://moviesdatabase.p.rapidapi.com';
   private headers = new HttpHeaders({
-    'X-RapidAPI-Key': '0b8f89c5a4mshcc009e25f7f49a1p165381jsnc4e731d3cf3e',
-    'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
+    'X-RapidAPI-Key': environment.apiKey,
+    'X-RapidAPI-Host': environment.apiHost
   });
 
   constructor(private http: HttpClient) {}
