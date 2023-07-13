@@ -1,0 +1,11 @@
+<div *ngIf="video" class="video-details">
+  <div class="video-grid">
+      <div class="gallery">
+        <img [src]="video.primaryImage != null ? video.primaryImage.url: 'https://boodabike.com/wp-content/uploads/2023/03/no-image.jpg' ">
+        <div class="video-info">
+          <p>{{ video.titleText.text }}</p>
+          <p>Release Date: {{ video.releaseDate.month }}/{{ video.releaseDate.day }}/{{ video.releaseDate.year }}</p>
+        </div>
+      </div>
+  </div>
+</div>

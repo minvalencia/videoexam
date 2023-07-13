@@ -1,0 +1,15 @@
+<div class="video-list">
+  <div class="search-bar">
+    <input type="text" [(ngModel)]="searchTerm" (input)="fetchVideos()" placeholder="Search videos">
+  </div>
+  <div class="video-grid" infiniteScroll [infiniteScrollDistance]="2" [immediateCheck]="false"  (scrolled)="onScroll()">
+    <div class="responsive video-item" *ngFor="let video of videos">
+      <div class="gallery">
+        <a [routerLink]="['/videos', video.id]">
+          <img [src]="video.primaryImage != null ? video.primaryImage.url: 'https://boodabike.com/wp-content/uploads/2023/03/no-image.jpg' " alt="{{ video.titleText }}">
+        </a>
+      </div>
+    </div>
+    <div>{{ nextPage != null ? 'Loading...': 'No videos found.' }}</div>
+  </div>
+</div>
